@@ -1,24 +1,25 @@
 package RoversMovement;
 
 public class PlateauSize {
+    int x = 0;
+    int y = 0;
+
+    public PlateauSize(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
 
-    public static void plateauGrid (){
+    public static void plateauGrid (int x, int y){
 
-        String [][][] plateauSize = new String[5][5][2];
-        for (int i = 0; i < plateauSize.length; i++) {
-            for (int j = 0; j < plateauSize.length; j++) {
-                for (int k = 0; k < plateauSize[j].length; k++) {
-                        plateauSize[i][j][0] = "x";
-                        plateauSize[i][j][1] = "y";
-                }}}
-            for (String[][] string : plateauSize){
+     int [][] plateau = new int[x][y];
+
+            for (int[] row : plateau){
                 String newRoll = " ";
-                for (String[] columns : string){
-                    for (String el : columns){
-                    newRoll += el;
+                for (int columns : row){
+                    newRoll += columns;
                     newRoll += "";
-                }}
+                }
 
                 System.out.println(newRoll);}
         }
