@@ -91,10 +91,10 @@ void testTurnRight() {
     @DisplayName("Tests method returns new position in Plateau when moved")
     void testMove() {
         // Arrange
-        Position position = new Position(3, 2, Directions.N);
+        Position position = new Position(5, 2, Directions.N);
         Rover rover = new Rover(position);
         // Act
-        rover.move(Instructions.M,position);
+        rover.move(Instructions.M);
         // Assert
         assertEquals(3,position.getY());
     }
