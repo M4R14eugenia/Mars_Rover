@@ -50,9 +50,21 @@ public class Rover implements Movable{
         //if "M"
         //get position
         //if facing North = y+1; if facing South y-1; if facing east x-1; if facing west x+1
+        if(instructions== Instructions.M){
+            if(position.getFacing() == Directions.N){
+                position.setY( + 1);
+            }
+            else if(position.getFacing() == Directions.S){
+                position.setY(-1);
+            }
+            else if (position.getFacing() == Directions.E){
+                position.setX(-1);
+            } else if (position.getFacing() == Directions.W) {
+                position.setY(+1);
 
-           }
-       }
+            }
+
+        }
         return null;
     }
 }
