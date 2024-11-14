@@ -87,4 +87,17 @@ void testTurnRight() {
                 () -> assertEquals(position2.getFacing(),Directions.E),
                 () -> assertEquals(position3.getFacing(), Directions.S));
     }
+    @Test
+    @DisplayName("Tests method returns new position in Plateau when moved")
+    void testMove() {
+        // Arrange
+        Position position = new Position(3, 2, Directions.N);
+        Rover rover = new Rover(position);
+        // Act
+        rover.move(Instructions.M,position);
+        // Assert
+        assertEquals(3,position.getY());
+    }
+    //if facing North = y+1; if facing South y-1; if facing east x-1; if facing west x+1
+
 }
