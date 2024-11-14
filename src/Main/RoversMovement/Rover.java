@@ -6,30 +6,29 @@ public class Rover implements Movable{
     Position position;
     Directions direction;
     Instructions instructions;
-    Rover rover;
 
     public Rover(Position position) {
         this.position = position;
     }
 
     @Override
-    public Directions turnRight(Instructions instructions, Position position) {
+    public Directions turnLeft(Instructions instructions) {
         //if position is
-         //North - W; West - S; South - East; East - North
-        if(instructions == Instructions.R) {
+        //North - W; West - S; South - East; East - North
+        if (instructions == Instructions.R) {
             if (position.getFacing() == Directions.N) {
                 return Directions.W;
             } else if (position.getFacing() == Directions.W) {
                 return Directions.S;
-            }else if (position.getFacing() == Directions.S){
+            } else if (position.getFacing() == Directions.S) {
                 return Directions.E;
-            }else if (position.getFacing() == Directions.E){
+            } else if (position.getFacing() == Directions.E) {
                 return Directions.N;
             }
-
         }
-        return null;}
-    public Directions turnLeft(Instructions instructions, Position position) {
+        return null;
+    }
+    public Directions turnNorth(Instructions instructions) {
       //switch North - E; East - South; S- West; W -North;
         if(instructions == Instructions.L){
             if (position.getFacing() == Directions.N) {
