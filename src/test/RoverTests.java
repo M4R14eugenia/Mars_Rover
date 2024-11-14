@@ -11,36 +11,42 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RoverTests {
 
     @Test
-    @DisplayName("Tests rotate method returns point East when turning right from North")
+    @DisplayName("Tests method returns point East when turning right from North")
     void testTurnRightFromNorth() {
         // Arrange
-        Rover rover = new Rover(new Position(3,2,Directions.N));
+        Position position = new Position(3, 2, Directions.N);
+        Rover rover = new Rover(position);
         // Act
-        Directions result = rover.turnRight(Instructions.R);
+        rover.turnRight(Instructions.R);
         // Assert
-        assertEquals(Directions.E, result);
+        assertEquals(Directions.E, position.getFacing());
     }
+
 
 @Test
 @DisplayName("Tests rotate method returns right position when turning right from any point")
 void testTurnRight() {
     // Arrange
-    Rover rover = new Rover(new Position(3,2,Directions.N));
-    Rover roverOne = new Rover(new Position(3,2,Directions.E));
-    Rover roverTwo = new Rover(new Position(3,2,Directions.S));
-    Rover roverThree = new Rover(new Position(3,2,Directions.W));
+    Position position = new Position(3,2,Directions.N);
+    Rover rover = new Rover(position);
+    Position position1 = new Position(3,4,Directions.E);
+    Rover roverOne = new Rover(position1);
+    Position position2 = new Position(3,1,Directions.S);
+    Rover roverTwo = new Rover(position2);
+    Position position3 = new Position(4,2,Directions.W);
+    Rover roverThree = new Rover(position3);
 
     // Act
-    Directions result = rover.turnRight(Instructions.R);
-    Directions resultOne = roverOne.turnRight(Instructions.R);
-    Directions resultTwo = roverTwo.turnRight(Instructions.R);
-    Directions resultThree = roverThree.turnRight(Instructions.R);
+    rover.turnRight(Instructions.R);
+    roverOne.turnRight(Instructions.R);
+    roverTwo.turnRight(Instructions.R);
+    roverThree.turnRight(Instructions.R);
 
     // Assert
     assertAll("grouped assertions of turning right",
-            () -> assertEquals(result, Directions.E),
-            () -> assertEquals(resultOne, Directions.S),
-            () -> assertEquals(resultTwo,Directions.W),
-            () -> assertEquals(resultThree, Directions.N));
+            () -> assertEquals(position.getFacing(), Directions.E),
+            () -> assertEquals(position1.getFacing(), Directions.S),
+            () -> assertEquals(position2.getFacing(),Directions.W),
+            () -> assertEquals(position3.getFacing(), Directions.N));
 }
 }
