@@ -28,7 +28,7 @@ public class Rover implements Movable{
         }
         return null;
     }
-    public Directions turnNorth(Instructions instructions) {
+    public Directions turnRight(Instructions instructions) {
       //switch North - E; East - South; S- West; W -North;
         if(instructions == Instructions.L){
             if (position.getFacing() == Directions.N) {
