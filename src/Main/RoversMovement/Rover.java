@@ -12,37 +12,35 @@ public class Rover implements Movable{
     }
 
     @Override
-    public Directions turnLeft(Instructions instructions) {
+    public void turnLeft(Instructions instructions) {
         //if position is
         //North - W; West - S; South - East; East - North
-        if (instructions == Instructions.R) {
+        if (instructions == Instructions.L) {
             if (position.getFacing() == Directions.N) {
-                return Directions.W;
+                 position.setFacing(Directions.W);
             } else if (position.getFacing() == Directions.W) {
-                return Directions.S;
+                position.setFacing(Directions.S);
             } else if (position.getFacing() == Directions.S) {
-                return Directions.E;
+                position.setFacing(Directions.E);
             } else if (position.getFacing() == Directions.E) {
-                return Directions.N;
+                position.setFacing(Directions.N);
             }
         }
-        return null;
     }
-    public Directions turnRight(Instructions instructions) {
+    public void turnRight(Instructions instructions) {
       //switch North - E; East - South; S- West; W -North;
-        if(instructions == Instructions.L){
+        if(instructions == Instructions.R){
             if (position.getFacing() == Directions.N) {
-                return Directions.E;
+                position.setFacing(Directions.E);
             } else if (position.getFacing() == Directions.W) {
-                return Directions.N;
+                position.setFacing(Directions.N);
             }else if (position.getFacing() == Directions.S){
-                return Directions.W;
+                position.setFacing(Directions.W);
             }else if (position.getFacing() == Directions.E){
-                return Directions.S;
+                position.setFacing(Directions.S);
             }
         }
-
-        return null;}
+    }
 
     @Override
     public Position move(Instructions instructions, Position position) {
