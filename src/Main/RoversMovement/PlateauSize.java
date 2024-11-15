@@ -3,6 +3,8 @@ package RoversMovement;
 public class PlateauSize {
     int x = 0;
     int y = 0;
+    Position firstPosition;
+    PlateauSize plateauSize;
 
     public PlateauSize(int x, int y) {
         this.x = x;
