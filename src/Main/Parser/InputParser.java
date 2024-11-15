@@ -43,21 +43,21 @@ public class InputParser {
 
             if (rover.getPosition().getFacing() == Directions.N) {
                 rover.move(Instructions.M);
-                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
+                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+ "\n");
             }
             if (rover.getPosition().getFacing() == Directions.E) {
                 rover.move(Instructions.M);
-                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
+                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+ "\n");
 
             }
             if (rover.getPosition().getFacing() == Directions.W) {
                 rover.move(Instructions.M);
-                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
+                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"\n");
 
             }
             if (rover.getPosition().getFacing() == Directions.S) {
                 rover.move(Instructions.M);
-                System.out.print("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
+                System.out.print("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"\n");
 
             }
         }}

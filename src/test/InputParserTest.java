@@ -6,8 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import Parser.InputParser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static java.lang.String.valueOf;
+import static org.junit.jupiter.api.Assertions.*;
 
 class InputParserTest {
 
@@ -131,23 +131,19 @@ class InputParserTest {
     void testLongMove() {
         //Assert
         InputParser inputParser = new InputParser();
-        Rover rover = new Rover(new Position(3, 2, Directions.N));
-        Rover roverOne = new Rover(new Position(3, 2, Directions.E));
-        Rover roverTwo = new Rover(new Position(3, 2, Directions.W));
-        Rover roverThree = new Rover(new Position(3, 2, Directions.S));
+        Rover rover = new Rover(new Position(3, 3, Directions.E));
 
-        String userInput = "MRMMLM";
+
+        String userInput = "MMRMMRMRRM";
         //Act
         inputParser.move(userInput,rover);
-        inputParser.move(userInput,roverOne);
-        inputParser.move(userInput,roverTwo);
-        inputParser.move(userInput,roverThree);
+
 
         //Assert
-        assertEquals(3, rover.getPosition().getY());
-        assertEquals(4, roverOne.getPosition().getX());
-        assertEquals(2, roverTwo.getPosition().getX());
-        assertEquals(1, roverThree.getPosition().getY());
+        assertEquals(5, rover.getPosition().getX());
+        assertEquals(1, rover.getPosition().getY());
+        assertEquals(Directions.E, rover.getPosition().getFacing());
+
 
     }
 }
