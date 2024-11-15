@@ -22,7 +22,7 @@ public class InputParser {
         } else if (userInput.equalsIgnoreCase("W")) {
             position = new Position(x, y, Directions.W);
         }
-        System.out.println("Your Rover landed in Mars successfully, at the coordenates " + position);
+        System.out.println("Your Rover landed in Mars successfully, at the coordenates " + position.getX()+ ", " + position.getY() +" " +position.getFacing());
         return position;
     }
 
