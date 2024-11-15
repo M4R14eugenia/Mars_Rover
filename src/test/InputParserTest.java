@@ -73,7 +73,7 @@ class InputParserTest {
         String input = "R";
         Rover rover = new Rover(position);
         //Act
-        inputParser.rotate(input, rover);
+        inputParser.move(input, rover);
         //Assert
         assertEquals(Directions.E, position.getFacing());
     }
@@ -86,7 +86,7 @@ class InputParserTest {
         String input = "L";
         Rover rover = new Rover(position);
         //Act
-        inputParser.rotate(input, rover);
+        inputParser.move(input, rover);
         //Assert
         assertEquals(Directions.W, position.getFacing());
     }
@@ -113,6 +113,30 @@ class InputParserTest {
         Rover roverThree = new Rover(new Position(3, 2, Directions.S));
 
         String userInput = "M";
+        //Act
+        inputParser.move(userInput,rover);
+        inputParser.move(userInput,roverOne);
+        inputParser.move(userInput,roverTwo);
+        inputParser.move(userInput,roverThree);
+
+        //Assert
+        assertEquals(3, rover.getPosition().getY());
+        assertEquals(4, roverOne.getPosition().getX());
+        assertEquals(2, roverTwo.getPosition().getX());
+        assertEquals(1, roverThree.getPosition().getY());
+
+    }
+    @Test
+    @DisplayName("Test rover moves in all directions given long String input")
+    void testLongMove() {
+        //Assert
+        InputParser inputParser = new InputParser();
+        Rover rover = new Rover(new Position(3, 2, Directions.N));
+        Rover roverOne = new Rover(new Position(3, 2, Directions.E));
+        Rover roverTwo = new Rover(new Position(3, 2, Directions.W));
+        Rover roverThree = new Rover(new Position(3, 2, Directions.S));
+
+        String userInput = "MRMMLM";
         //Act
         inputParser.move(userInput,rover);
         inputParser.move(userInput,roverOne);

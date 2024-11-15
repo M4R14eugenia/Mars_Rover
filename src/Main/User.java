@@ -83,6 +83,19 @@ public class User {
 
         }
     }
+    public void moveRover (String commands){
+         Scanner scanner;
+
+         try{
+             scanner = new Scanner(System.in);
+             System.out.println("To move your rover, please give commands following this basic instructions. Type L to turn Left, R to turn right and M to move your rover.");
+             System.out.println("Please type your instructions : 'e.g. MMLMRM'");
+             scanner.nextLine();
+         }catch (Exception e){
+             e.printStackTrace();
+         }
+
+    }
 }
 
 

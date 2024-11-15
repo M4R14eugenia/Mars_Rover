@@ -26,20 +26,19 @@ public class InputParser {
         return position;
     }
 
-    public void rotate(String userInput, Rover rover) {
-
-        if (userInput.equals("L")) {
-            instructions = Instructions.L;
-            rover.turnLeft(Instructions.L);
-        } else if (userInput.equals("R")) {
-            instructions = Instructions.R;
-            rover.turnRight(Instructions.R);
-        }
-
-    }
 
     public void move(String userInput, Rover rover) {
-        if (userInput.equals("M")) {
+
+        for (int i = 0; i < userInput.length(); i++) {
+            if (userInput.charAt(i) == 'L') {
+                instructions = Instructions.L;
+                rover.turnLeft(Instructions.L);
+            } else if (userInput.charAt(i) == 'R') {
+                instructions = Instructions.R;
+                rover.turnRight(Instructions.R);
+            }
+
+        if (userInput.charAt(i) == 'M') {
             System.out.println("Rover moving from " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"...");
 
             if (rover.getPosition().getFacing() == Directions.N) {
@@ -61,7 +60,7 @@ public class InputParser {
                 System.out.print("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
 
             }
-        }
+        }}
     }
 }
 
