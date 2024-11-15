@@ -88,8 +88,8 @@ void testTurnRight() {
                 () -> assertEquals(position3.getFacing(), Directions.S));
     }
     @Test
-    @DisplayName("Tests method returns new position in Plateau when moved")
-    void testMove() {
+    @DisplayName("Tests method returns new position in Plateau when moved when facing North.")
+    void testMoveNorth() {
         // Arrange
         Position position = new Position(5, 2, Directions.N);
         Rover rover = new Rover(position);
@@ -98,6 +98,30 @@ void testTurnRight() {
         // Assert
         assertEquals(3,position.getY());
     }
-    //if facing North = y+1; if facing South y-1; if facing east x-1; if facing west x+1
+    @Test
+    @DisplayName("Tests method returns new position in Plateau when moved facing any direction")
+    void testMove() {
+        // Arrange
+        Position position = new Position(5, 2, Directions.N);
+        Rover rover = new Rover(position);
+        Position positionOne = new Position(5, 2, Directions.E);
+        Rover roverOne = new Rover(positionOne);
+        Position positionTwo = new Position(5, 2, Directions.S);
+        Rover roverTwo = new Rover(positionTwo);
+        Position positionThree = new Position(5, 2, Directions.W);
+        Rover roverThree = new Rover(positionThree);
+        // Act
+        rover.move(Instructions.M);
+        roverOne.move(Instructions.M);
+        roverTwo.move(Instructions.M);
+        roverThree.move(Instructions.M);
 
+        // Assert
+        assertEquals(3,position.getY());
+        assertEquals(6,positionOne.getX());
+        assertEquals(1,positionTwo.getY());
+        assertEquals(4,positionThree.getX());
+
+    }
 }
+//if facing North = y+1; if facing South y-1; if facing east x-1; if facing west x+1
