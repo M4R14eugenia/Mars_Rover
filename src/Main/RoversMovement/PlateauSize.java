@@ -12,7 +12,7 @@ public class PlateauSize {
         PlateauSize.x = x;
     }
 
-    public int getY() {
+    public static int getY() {
         return y;
     }
 
@@ -20,7 +20,7 @@ public class PlateauSize {
         PlateauSize.y = y;
     }
 
-    public int getX() {
+    public static int getX() {
         return x;
     }
 

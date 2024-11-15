@@ -13,13 +13,13 @@ public class InputParser {
 
 
     public Position firstPosition(int x, int y, String userInput) {
-        if (userInput.equals("N")) {
+        if (userInput.equalsIgnoreCase("N")) {
             position = new Position(x, y, Directions.N);
-        } else if (userInput.equals("E")) {
+        } else if (userInput.equalsIgnoreCase("E")) {
             position = new Position(x, y, Directions.E);
-        } else if (userInput.equals("S")) {
+        } else if (userInput.equalsIgnoreCase("S")) {
             position = new Position(x, y, Directions.S);
-        } else if (userInput.equals("W")) {
+        } else if (userInput.equalsIgnoreCase("W")) {
             position = new Position(x, y, Directions.W);
         }
         return position;
