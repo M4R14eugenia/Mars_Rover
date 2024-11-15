@@ -7,14 +7,10 @@ import java.util.Objects;
 
 
 public class InputParser {
-    RoversMovement.Directions direction;
     RoversMovement.Instructions instructions;
     Position position;
-    String userInput;
 
 
-   public void plateauSetSize(int x, int y){
-   }
 
     public Position firstPosition(int x, int y, String userInput) {
         if (userInput.equals("N")) {
@@ -24,12 +20,12 @@ public class InputParser {
         } else if (userInput.equals("S")) {
             position = new Position(x, y, Directions.S);
         } else if (userInput.equals("W")) {
-            position = new Position(x, y, Directions.E);
+            position = new Position(x, y, Directions.W);
         }
         return position;
     }
 
-    public void rotate(String userInput, Rover rover, Position position) {
+    public void rotate(String userInput, Rover rover) {
 
         if (userInput.equals("L")) {
             instructions = Instructions.L;
@@ -38,29 +34,30 @@ public class InputParser {
             instructions = Instructions.R;
             rover.turnRight(Instructions.R);
         }
+
     }
 
-    public void move(String userInput, Rover rover, Position facing) {
+    public void move(String userInput, Rover rover) {
         if (userInput.equals("M")) {
-            System.out.println("Rover moving from " + facing.getX() + "," + facing.getY() + "," + facing.getFacing());
+            System.out.println("Rover moving from " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"...");
 
-            if (facing.getFacing() == Directions.N) {
-                rover.move(instructions);
-                System.out.print(" to" + facing.getX() + "," + facing.getY() + "," + facing.getFacing());
+            if (rover.getPosition().getFacing() == Directions.N) {
+                rover.move(Instructions.M);
+                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
             }
-            if (facing.getFacing() == Directions.E) {
-                rover.move(instructions);
-                System.out.print(" to" + facing.getX() + "," + facing.getY() + "," + facing.getFacing());
-
-            }
-            if (facing.getFacing() == Directions.W) {
-                rover.move(instructions);
-                System.out.print(" to" + facing.getX() + "," + facing.getY() + "," + facing.getFacing());
+            if (rover.getPosition().getFacing() == Directions.E) {
+                rover.move(Instructions.M);
+                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
 
             }
-            if (facing.getFacing() == Directions.S) {
-                rover.move(instructions);
-                System.out.print(" to" + facing.getX() + "," + facing.getY() + "," + facing.getFacing());
+            if (rover.getPosition().getFacing() == Directions.W) {
+                rover.move(Instructions.M);
+                System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
+
+            }
+            if (rover.getPosition().getFacing() == Directions.S) {
+                rover.move(Instructions.M);
+                System.out.print("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing());
 
             }
         }

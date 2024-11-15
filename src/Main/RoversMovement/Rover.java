@@ -7,6 +7,22 @@ public class Rover implements Movable{
     Directions direction;
     Instructions instructions;
 
+    public Instructions getInstructions() {
+        return instructions;
+    }
+
+    public Directions getDirection() {
+        return direction;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public PlateauSize getPlateauSize() {
+        return plateauSize;
+    }
+
     public Rover(Position position) {
         this.position = position;
     }
@@ -52,7 +68,7 @@ public class Rover implements Movable{
                 position.setY(position.getY() + 1);
             }
             else if(position.getFacing() == Directions.S){
-                position.setY(position.getY() -1);
+                position.setY(position.getY() - 1);
             }
             else if (position.getFacing() == Directions.E){
                 position.setX(position.getX() +1);

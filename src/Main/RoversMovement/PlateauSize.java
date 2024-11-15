@@ -1,20 +1,45 @@
 package RoversMovement;
 
-public class PlateauSize {
-    int x = 0;
-    int y = 0;
-    Position firstPosition;
-    PlateauSize plateauSize;
+import Parser.InputParser;
 
-    public PlateauSize(int x, int y) {
-        this.x = x;
-        this.y = y;
+public class PlateauSize {
+    private static int x = 0;
+    private static int y = 0;
+    Position firstPosition;
+
+    public PlateauSize(int y, int x) {
+        PlateauSize.y = y;
+        PlateauSize.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public static void setY(int y) {
+        PlateauSize.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public static void setX(int x) {
+        PlateauSize.x = x;
+    }
+
+    public Position getFirstPosition() {
+        return firstPosition;
+    }
+
+    public void setFirstPosition(Position firstPosition) {
+        this.firstPosition = firstPosition;
     }
 
 
-    public static void plateauGrid (int x, int y){
+    public static void plateauGrid (PlateauSize plateauSize){
 
-     int [][] plateau = new int[x][y];
+     int [][] plateau = new int[plateauSize.getX()][plateauSize.getY()];
 
             for (int[] row : plateau){
                 String newRoll = " ";
