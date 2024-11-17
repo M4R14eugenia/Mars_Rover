@@ -8,11 +8,14 @@ import java.util.Objects;
 
 public class InputParser {
     RoversMovement.Instructions instructions;
-    Position position;
+    static Position position;
+    InputParser inputParser;
 
+    public InputParser(InputParser inputParser) {
+        this.inputParser = inputParser;
+    }
 
-
-    public Position firstPosition(int x, int y, String userInput) {
+    public static Position firstPosition(int x, int y, String userInput) {
         if (userInput.equalsIgnoreCase("N")) {
             position = new Position(x, y, Directions.N);
         } else if (userInput.equalsIgnoreCase("E")) {
