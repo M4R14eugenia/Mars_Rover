@@ -1,12 +1,17 @@
 package RoversMovement;
 
-public class Rover implements Movable{
+public class Rover implements Movable {
 
     PlateauSize plateauSize;
     Position position;
     Directions direction;
     Instructions instructions;
-    Rover rover;
+
+    public Position getNewPosition() {
+        return newPosition;
+    }
+
+    Position newPosition;
 
     public Instructions getInstructions() {
         return instructions;
@@ -34,7 +39,7 @@ public class Rover implements Movable{
         //North - W; West - S; South - East; East - North
         if (instructions == Instructions.L) {
             if (position.getFacing() == Directions.N) {
-                 position.setFacing(Directions.W);
+                position.setFacing(Directions.W);
             } else if (position.getFacing() == Directions.W) {
                 position.setFacing(Directions.S);
             } else if (position.getFacing() == Directions.S) {
@@ -44,16 +49,17 @@ public class Rover implements Movable{
             }
         }
     }
+
     public void turnRight(Instructions instructions) {
-      //switch North - E; East - South; S- West; W -North;
-        if(instructions == Instructions.R){
+        //switch North - E; East - South; S- West; W -North;
+        if (instructions == Instructions.R) {
             if (position.getFacing() == Directions.N) {
                 position.setFacing(Directions.E);
             } else if (position.getFacing() == Directions.W) {
                 position.setFacing(Directions.N);
-            }else if (position.getFacing() == Directions.S){
+            } else if (position.getFacing() == Directions.S) {
                 position.setFacing(Directions.W);
-            }else if (position.getFacing() == Directions.E){
+            } else if (position.getFacing() == Directions.E) {
                 position.setFacing(Directions.S);
             }
         }
@@ -63,23 +69,20 @@ public class Rover implements Movable{
     public Position move(Instructions instructions) {
 
 
-        if(instructions == Instructions.M){
-            if(position.getFacing() == Directions.N){
-              position.setY(position.getY() + 1);
-            }
-            else if(position.getFacing() == Directions.S){
+        if (instructions == Instructions.M) {
+            if (position.getFacing() == Directions.N) {
+                position.setY(position.getY() + 1);
+            } else if (position.getFacing() == Directions.S) {
                 position.setY(position.getY() - 1);
-            }
-            else if (position.getFacing() == Directions.E){
-                position.setX(position.getX() +1);
+            } else if (position.getFacing() == Directions.E) {
+                position.setX(position.getX() + 1);
             } else if (position.getFacing() == Directions.W) {
-                position.setX(position.getX()-1);
+                position.setX(position.getX() - 1);
 
             }
 
         }
-        Position newPosition = new Position(position.getX(), position.getY(),position.getFacing());
-        System.out.println("Your new position is " + position.getX() +", " + position.getY()+", "+position.getFacing()+".");
+        newPosition = new Position(position.getX(), position.getY(), position.getFacing());
 
-        return newPosition;}
+    return newPosition;}
 }

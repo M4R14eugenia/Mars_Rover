@@ -4,8 +4,7 @@ public class Position {
     private int x;
     private int y;
     private Directions facing;
-    Position position;
-    Rover rover;
+
 
     public int getX() {
         return x;
@@ -36,10 +35,5 @@ public class Position {
         this.y = y;
         this.facing = facing;
     }
-    public boolean isValidPosition (){
-        if(position != null){
-            if (position.getX() > PlateauSize.getX() || position.getY() > PlateauSize.getY()){
-            return false;}
-        }
-    return true;}
+
 }

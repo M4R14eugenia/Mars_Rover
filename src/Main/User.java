@@ -123,7 +123,11 @@ public class User {
                 commands = scanner.nextLine();
 
 
-                   InputParser.move(commands, new Rover(InputParser.firstPosition(a, b, direction)));
+                Position newPosition =  InputParser.move(commands, new Rover(InputParser.firstPosition(a, b, direction)));
+
+                if (newPosition.getX() > PlateauSize.getX() || newPosition.getY() > PlateauSize.getY()) {
+                    System.out.println("OH NOOOOO.. Seems like your Rover has driven out of the plateau grid and was captured by Martians!!!");
+                }
 
 
                 } catch (Exception e) {

@@ -2,9 +2,6 @@ package Parser;
 
 import RoversMovement.*;
 
-import java.lang.Enum.EnumDesc;
-import java.util.Objects;
-
 
 public class InputParser {
     static RoversMovement.Instructions instructions;
@@ -27,13 +24,13 @@ public class InputParser {
 
 
 
-    public static void move(String userInput, Rover rover) {
+    public static Position move(String userInput, Rover rover) {
 
 
         for (int i = 0; i < userInput.length(); i++) {
 
             if(userInput.charAt(i) != 'M' && userInput.charAt(i) != 'R' && userInput.charAt(i) != 'L'){
-                System.out.println("Rover cannot move");
+                System.out.println("Rover cannot move, invalid input");
             }
 
             if (userInput.charAt(i) == 'L') {
@@ -47,26 +44,27 @@ public class InputParser {
         if (userInput.charAt(i) == 'M') {
             System.out.println("Rover moving from " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"...");
 
-            if (rover.getPosition().getFacing() == Directions.N && rover.getPosition().isValidPosition()) {
+            if (rover.getPosition().getFacing() == Directions.N) {
                 rover.move(Instructions.M);
                 System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+ "\n");
             }
-            if (rover.getPosition().getFacing() == Directions.E && rover.getPosition().isValidPosition()) {
+            if (rover.getPosition().getFacing() == Directions.E) {
                 rover.move(Instructions.M);
                 System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+ "\n");
 
             }
-            if (rover.getPosition().getFacing() == Directions.W && rover.getPosition().isValidPosition()) {
+            if (rover.getPosition().getFacing() == Directions.W) {
                 rover.move(Instructions.M);
                 System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"\n");
 
             }
-            if (rover.getPosition().getFacing() == Directions.S && rover.getPosition().isValidPosition()) {
+            if (rover.getPosition().getFacing() == Directions.S) {
                 rover.move(Instructions.M);
                 System.out.print("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"\n");
 
             }
         }}
+        return rover.getPosition();
     }
 }
 
