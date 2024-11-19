@@ -6,6 +6,7 @@ public class Rover implements Movable{
     Position position;
     Directions direction;
     Instructions instructions;
+    Rover rover;
 
     public Instructions getInstructions() {
         return instructions;
@@ -77,6 +78,8 @@ public class Rover implements Movable{
             }
 
         }
-        return null;
-    }
+        Position newPosition = new Position(position.getX(), position.getY(),position.getFacing());
+        System.out.println("Your new position is " + position.getX() +", " + position.getY()+", "+position.getFacing()+".");
+
+        return newPosition;}
 }

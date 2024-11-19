@@ -9,11 +9,6 @@ import java.util.Objects;
 public class InputParser {
     static RoversMovement.Instructions instructions;
     static Position position;
-    InputParser inputParser;
-
-    public InputParser() {
-        this.inputParser = this;
-    }
 
     public static Position firstPosition(int x, int y, String userInput) {
         if (userInput.equalsIgnoreCase("N")) {
@@ -37,7 +32,7 @@ public class InputParser {
 
         for (int i = 0; i < userInput.length(); i++) {
 
-            if(userInput.charAt(i) != 'M' || userInput.charAt(i) != 'R' || userInput.charAt(i) != 'L'){
+            if(userInput.charAt(i) != 'M' && userInput.charAt(i) != 'R' && userInput.charAt(i) != 'L'){
                 System.out.println("Rover cannot move");
             }
 

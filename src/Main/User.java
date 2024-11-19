@@ -123,7 +123,7 @@ public class User {
                 commands = scanner.nextLine();
 
 
-                   inputParser.move(commands, new Rover(InputParser.firstPosition(a, b, direction)));
+                   InputParser.move(commands, new Rover(InputParser.firstPosition(a, b, direction)));
 
 
                 } catch (Exception e) {
