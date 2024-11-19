@@ -7,12 +7,12 @@ import java.util.Objects;
 
 
 public class InputParser {
-    RoversMovement.Instructions instructions;
+    static RoversMovement.Instructions instructions;
     static Position position;
     InputParser inputParser;
 
-    public InputParser(InputParser inputParser) {
-        this.inputParser = inputParser;
+    public InputParser() {
+        this.inputParser = this;
     }
 
     public static Position firstPosition(int x, int y, String userInput) {
@@ -30,9 +30,17 @@ public class InputParser {
     }
 
 
-    public void move(String userInput, Rover rover) {
+
+
+    public static void move(String userInput, Rover rover) {
+
 
         for (int i = 0; i < userInput.length(); i++) {
+
+            if(userInput.charAt(i) != 'M' || userInput.charAt(i) != 'R' || userInput.charAt(i) != 'L'){
+                System.out.println("Rover cannot move");
+            }
+
             if (userInput.charAt(i) == 'L') {
                 instructions = Instructions.L;
                 rover.turnLeft(Instructions.L);
@@ -44,21 +52,21 @@ public class InputParser {
         if (userInput.charAt(i) == 'M') {
             System.out.println("Rover moving from " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"...");
 
-            if (rover.getPosition().getFacing() == Directions.N) {
+            if (rover.getPosition().getFacing() == Directions.N && rover.getPosition().isValidPosition()) {
                 rover.move(Instructions.M);
                 System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+ "\n");
             }
-            if (rover.getPosition().getFacing() == Directions.E) {
+            if (rover.getPosition().getFacing() == Directions.E && rover.getPosition().isValidPosition()) {
                 rover.move(Instructions.M);
                 System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+ "\n");
 
             }
-            if (rover.getPosition().getFacing() == Directions.W) {
+            if (rover.getPosition().getFacing() == Directions.W && rover.getPosition().isValidPosition()) {
                 rover.move(Instructions.M);
                 System.out.println("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"\n");
 
             }
-            if (rover.getPosition().getFacing() == Directions.S) {
+            if (rover.getPosition().getFacing() == Directions.S && rover.getPosition().isValidPosition()) {
                 rover.move(Instructions.M);
                 System.out.print("... to " + rover.getPosition().getX() + "," + rover.getPosition().getY() + "," + rover.getPosition().getFacing()+"\n");
 

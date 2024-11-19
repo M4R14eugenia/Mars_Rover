@@ -18,9 +18,8 @@ class InputParserTest {
         String userInput = "N";
         int inputX = 3;
         int inputY = 2;
-        InputParser input = new InputParser();
         // Act
-       Position result = input.firstPosition(inputX,inputY,userInput);
+       Position result = InputParser.firstPosition(inputX,inputY,userInput);
        Position position = new Position(3,2,Directions.N);
 
        // Assert
@@ -38,16 +37,12 @@ class InputParserTest {
 
         int inputX = 3;
         int inputY = 2;
-        InputParser input = new InputParser();
-        InputParser inputOne = new InputParser();
-        InputParser inputTwo = new InputParser();
-        InputParser inputThree = new InputParser();
 
         // Act
-        Position result = input.firstPosition(inputX,inputY,userInput);
-        Position resultOne = inputOne.firstPosition(inputX,inputY,userInputOne);
-        Position resultTwo = inputTwo.firstPosition(inputX,inputY,userInputTwo);
-        Position resultThree = inputThree.firstPosition(inputX,inputY,userInputThree);
+        Position result = InputParser.firstPosition(inputX,inputY,userInput);
+        Position resultOne = InputParser.firstPosition(inputX,inputY,userInputOne);
+        Position resultTwo = InputParser.firstPosition(inputX,inputY,userInputTwo);
+        Position resultThree = InputParser.firstPosition(inputX,inputY,userInputThree);
 
         Position position = new Position(3,2,Directions.N);
         Position positionOne = new Position(3,2,Directions.E);
@@ -67,26 +62,24 @@ class InputParserTest {
     @Test
     @DisplayName("Tests rover can turn right given String input R")
     void testRotateRight() {
-        InputParser inputParser = new InputParser();
-        Position position = inputParser.firstPosition(3,2,"N");
+        Position position = InputParser.firstPosition(3,2,"N");
 
         String input = "R";
         Rover rover = new Rover(position);
         //Act
-        inputParser.move(input, rover);
+        InputParser.move(input, rover);
         //Assert
         assertEquals(Directions.E, position.getFacing());
     }
     @Test
     @DisplayName("Tests rover can turn left given String input L")
     void testRotateLeft() {
-        InputParser inputParser = new InputParser();
-        Position position = inputParser.firstPosition(3,2,"N");
+        Position position = InputParser.firstPosition(3,2,"N");
 
         String input = "L";
         Rover rover = new Rover(position);
         //Act
-        inputParser.move(input, rover);
+        InputParser.move(input, rover);
         //Assert
         assertEquals(Directions.W, position.getFacing());
     }
@@ -94,11 +87,10 @@ class InputParserTest {
     @DisplayName("Test rover moves North, when facing , given String input M")
     void testMoveNorth() {
         //Assert
-        InputParser inputParser = new InputParser();
         Rover rover = new Rover(new Position(3, 2, Directions.N));
         String userInput = "M";
        //Act
-        inputParser.move(userInput,rover);
+        InputParser.move(userInput,rover);
         //Assert
         assertEquals(3, rover.getPosition().getY());
     }
@@ -106,7 +98,6 @@ class InputParserTest {
     @DisplayName("Test rover in all directions given String input M")
     void testMove() {
         //Assert
-        InputParser inputParser = new InputParser();
         Rover rover = new Rover(new Position(3, 2, Directions.N));
         Rover roverOne = new Rover(new Position(3, 2, Directions.E));
         Rover roverTwo = new Rover(new Position(3, 2, Directions.W));
@@ -114,10 +105,10 @@ class InputParserTest {
 
         String userInput = "M";
         //Act
-        inputParser.move(userInput,rover);
-        inputParser.move(userInput,roverOne);
-        inputParser.move(userInput,roverTwo);
-        inputParser.move(userInput,roverThree);
+        InputParser.move(userInput,rover);
+        InputParser.move(userInput,roverOne);
+        InputParser.move(userInput,roverTwo);
+        InputParser.move(userInput,roverThree);
 
         //Assert
         assertEquals(3, rover.getPosition().getY());
@@ -130,13 +121,12 @@ class InputParserTest {
     @DisplayName("Test rover moves in all directions given long String input")
     void testLongMove() {
         //Assert
-        InputParser inputParser = new InputParser();
         Rover rover = new Rover(new Position(3, 3, Directions.E));
 
 
         String userInput = "MMRMMRMRRM";
         //Act
-        inputParser.move(userInput,rover);
+        InputParser.move(userInput,rover);
 
 
         //Assert

@@ -60,12 +60,11 @@ public class Rover implements Movable{
 
     @Override
     public Position move(Instructions instructions) {
-        //if "M"
-        //get position
-        //if facing North = y+1; if facing South y-1; if facing east x-1; if facing west x+1
+
+
         if(instructions == Instructions.M){
             if(position.getFacing() == Directions.N){
-                position.setY(position.getY() + 1);
+              position.setY(position.getY() + 1);
             }
             else if(position.getFacing() == Directions.S){
                 position.setY(position.getY() - 1);

@@ -94,7 +94,7 @@ public class User {
               scanner.nextLine();
               direction = scanner.nextLine();
 
-              if (direction.equals("N") || direction.equalsIgnoreCase( "E") || direction.equalsIgnoreCase( "S") || direction.equalsIgnoreCase( "W")) {
+              if (direction.equalsIgnoreCase("N") || direction.equalsIgnoreCase( "E") || direction.equalsIgnoreCase( "S") || direction.equalsIgnoreCase( "W")) {
 
                   InputParser.firstPosition(a, b, direction);}
               else {
@@ -121,17 +121,10 @@ public class User {
                 System.out.println("To move your rover, please give commands following this basic instructions. Type L to turn Left, R to turn right and M to move your rover.");
                 System.out.println("Please type your instructions : 'e.g. MMLMRM'");
                 commands = scanner.nextLine();
-                for (int i = 0; i < commands.length(); i++) {
 
-                    if (commands.charAt(i).equalsIgnoreCase("M") || commands.equalsIgnoreCase("L") || commands.equalsIgnoreCase("R")) {
 
-                        inputParser.move(commands, new Rover(InputParser.firstPosition(a, b, direction)));
-                    }
-                }else{
-                    System.out.println("invalid input, please try again using: L to turn left, R to turn right and M to move");
-                    continue;
-                }
-            }
+                   inputParser.move(commands, new Rover(InputParser.firstPosition(a, b, direction)));
+
 
                 } catch (Exception e) {
                 System.out.println(e.getMessage());

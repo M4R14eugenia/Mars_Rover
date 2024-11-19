@@ -2,10 +2,13 @@ package RoversMovement;
 
 import Parser.InputParser;
 
+import java.util.ArrayList;
+
 public class PlateauSize {
     private static int x = 0;
     private static int y = 0;
     Position firstPosition;
+
 
     public PlateauSize(int y, int x) {
         PlateauSize.y = y;
