@@ -127,7 +127,11 @@ public class User {
 
                 if (newPosition.getX() > PlateauSize.getX() || newPosition.getY() > PlateauSize.getY()) {
                     System.out.println("OH NOOOOO.. Seems like your Rover has driven out of the plateau grid and was captured by Martians!!!");
+                    break;
                 }
+                System.out.println("To move your Rover again, please type new commands");
+                commands = scanner.nextLine();
+                InputParser.move(commands,new Rover(newPosition));
 
 
                 } catch (Exception e) {
@@ -136,6 +140,7 @@ public class User {
             break;
         }
     }
+
 }
 
 

@@ -1,8 +1,8 @@
-# The Mars Rover Brief
+# The Mars Rover
 
-The surface of Mars is represented by a Plateau. You can make the assumption that the Plateau is a square/rectangular grid for the purpose of this task.
-
-Rovers navigate the Plateau by following a sequence of commands. They can also use their cameras and robot arms to collect photographs and samples.
+The surface of Mars is represented by a Plateau.
+The Plateau is a square/rectangular grid with proportions chosen by the User.
+Rovers navigate the Plateau by following a sequence of commands. 
 
 ## The Plateau
 
@@ -59,31 +59,3 @@ To move a Rover around the Plateau, a string of letters is sent to a Rover.
 | R      | Spins the Rover 90 degrees Right without moving from the current coordinate point   |
 | M      | Moves the Rover forward by one grid point, maintaining the same heading/orientation |
 
-## Output
-
-For each Rover, the output represents its final position: the coordinates and where it is facing.
-
-## Movement Rules
-
-Rovers move sequentially, this means that if multiple Rovers are being landed then the first Rover needs to finish moving first before the next one can move.
-
-## Example
-
-Given the following input:
-
-```
-5 5
-1 2 N
-LMLMLMLMM
-3 3 E
-MMRMMRMRRM
-```
-
-This creates a plateau of size `(5,5)` and lands two rovers on it. The first lands at `(1,2)N` and this one moves `LMLMLMLMM`. The second lands at `(3,3)E` and it moves `MMRMMRMRRM`.
-
-The expected output is:
-
-```
-1 3 N
-5 1 E
-```
